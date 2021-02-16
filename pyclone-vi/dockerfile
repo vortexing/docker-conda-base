@@ -1,0 +1,10 @@
+# Build as vortexing/conda-<toolname>
+# vortexing/conda-pyclone-vi:0.1.1
+
+FROM continuumio/anaconda3:2020.11
+
+## Tool-Specific Install 
+ADD requirements.txt /tmp/requirements.txt
+RUN conda create -c conda-forge -n pyclone-vi --file /tmp/requirements.txt --yes
+RUN activate pyclone-vi
+RUN pip install git+https://github.com/Roth-Lab/pyclone-vi.git@0.1.1
